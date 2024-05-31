@@ -1,11 +1,11 @@
-import { ContactsCollection } from "../db/contacts";
+import { ContactsCollection } from "../db/contacts.js";
 
 export const getAllContacts = async () => {
-    const students = await ContactsCollection.find();
-    return students;
+    const contacts = await ContactsCollection.find();
+    return contacts;
 };
 
-export const getContactById = async (studentId) => {
-    const student = await ContactsCollection.findById(studentId);
-    return student;
+export const getContactById = async (contactId) => {
+    const contact = await ContactsCollection.findById(contactId);
+    return contact;
 };

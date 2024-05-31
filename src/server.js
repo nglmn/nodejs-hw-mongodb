@@ -7,6 +7,7 @@ import { env } from './utils/env.js';
 
 const PORT = Number(env('PORT', '3000'));
 
+export const test = 'uou';
 export const setupServer = () => {
     const app = express();
     app.use(express.json());
@@ -18,25 +19,36 @@ export const setupServer = () => {
             },
         }),
     );
-    app.get('/', (req, res) => {
-        res.json({
-            message: 'Hello World!',
-        });
-    });
     app.get('/contacts', async (req, res) => {
-        const contacts = await getAllContacts();
-
-        res.status(200).json({
-            data: contacts,
-        });
+        try {
+            const contacts = await getAllContacts();
+            res.json({
+                status: 200,
+                data: contacts,
+                message: "Successfully found contacts!"
+            });
+        } catch (error) {
+            res.json({
+                status: 404,
+                message: error.message,
+            });
+        }
     });
     app.get('/contacts/:contactId', async (req, res) => {
-        const { studentId } = req.params;
-        const contact = await getContactById(studentId);
-
-        res.status(200).json({
-            data: contact,
-        });
+        try {
+            const { contactId } = req.params;
+            const contact = await getContactById(contactId);
+            res.json({
+                status: 200,
+                data: contact,
+                message: `Successfully found contact with id ${contactId}!`,
+            });
+        } catch (error) {
+            res.json({
+                status: 404,
+                message: error.message,
+            });
+        }
         res.status(404).json({
             message: 'Not found',
         });

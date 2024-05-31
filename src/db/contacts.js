@@ -11,8 +11,9 @@ const ContactSchema = new Schema(
             required: true,
         },
         email: {
-            email: 'email',
-            optional: true
+            type: String,
+            match: [/\S+@\S+\.\S+/, 'is invalid'],
+            required: false
         },
         isFavourite: {
             type: Boolean,
@@ -23,13 +24,7 @@ const ContactSchema = new Schema(
             required: true,
             enum: ['work', 'home', 'personal'],
             default: 'personal'
-        },
-        createdAt: {
-            timestamps: true
-        },
-        updatedAt: {
-            timestamps: true
-        },
+        }
     },
     {
         timestamps: true,
