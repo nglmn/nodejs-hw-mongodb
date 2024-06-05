@@ -28,10 +28,7 @@ export const setupServer = () => {
                 message: "Successfully found contacts!"
             });
         } catch (error) {
-            res.json({
-                status: 404,
-                message: error.message,
-            });
+            res.status(500).json({ error: error });
         }
     });
     app.get('/contacts/:contactId', async (req, res) => {
@@ -43,15 +40,11 @@ export const setupServer = () => {
                 data: contact,
                 message: `Successfully found contact with id ${contactId}!`,
             });
+            return;
         } catch (error) {
-            res.json({
-                status: 404,
-                message: error.message,
-            });
+            // res.status(500).json({ error: error });
+            res.status(404).json({ message: 'Not found' });
         }
-        res.status(404).json({
-            message: 'Not found',
-        });
     });
     app.use('*', (req, res) => {
         res.status(404).json({
