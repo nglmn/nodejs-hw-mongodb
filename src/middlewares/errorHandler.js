@@ -3,9 +3,11 @@ import { HttpError } from 'http-errors';
 export const errorHandler = (err, req, res) => {
     if (err instanceof HttpError) {
         res.status(404).json({
-            status: err.status,
-            message: err.name,
-            data: err,
+            status: 404,
+            message: "Not Found",
+            data: {
+                message: "Contact not found"
+            }
         });
         return;
     }
