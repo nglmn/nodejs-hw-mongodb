@@ -13,11 +13,9 @@ import { createContactsSchema, updateContactsSchema } from '../validation/contac
 const router = Router();
 
 router.get('/contacts', ctrlWrapper(getContactsController));
-router.get('/contacts/:contactId',
-    validateBody(createContactsSchema),
-    ctrlWrapper(getContactByIDController));
+router.get('/contacts/:contactId', ctrlWrapper(getContactByIDController));
 router.post('/contacts',
-    validateBody(updateContactsSchema),
+    validateBody(createContactsSchema),
     ctrlWrapper(createContactController));
 router.patch('/contacts/:contactId',
     validateBody(updateContactsSchema),
