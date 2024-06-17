@@ -14,13 +14,13 @@ const parseIsFavourite = (boolean) => {
 };
 
 export const parseFilterParams = (query) => {
-    const { isFavourite, type } = query;
+    const { isFavourite, contactType } = query;
 
     const parsedFavourite = parseIsFavourite(isFavourite);
-    const parsedContactType = parseType(type);
+    const parsedContactType = parseType(contactType);
 
     return {
         isFavourite: parsedFavourite,
-        type: parsedContactType
+        contactType: parsedContactType
     };
 };
