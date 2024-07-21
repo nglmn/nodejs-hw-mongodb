@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import { loginUserSchema, registerUserSchema, requestResetEmailSchema, resetPasswordSchema } from '../validation/auth.js';
-import { loginUserController, logoutUserController, refreshSessionController, registerUserController, requestResetEmailController, resetPasswordController} from '../controllers/auth.js';
+import { loginUserController, logoutUserController, refreshSessionController, registerUserController, requestResetEmailController, resetPasswordController } from '../controllers/auth.js';
 import { authenticate } from '../middlewares/authenticate.js';
 
 
