@@ -14,7 +14,7 @@
       "url": "http://localhost:3000"
     },
     {
-      "url": "https://nodejs-hw-mongodb-gue9.onrender.com"
+      "url": "https://contacts-app-y5jp.onrender.com"
     }
   ],
   "tags": [
@@ -215,7 +215,7 @@
                   "email": {
                     "description": "Contact's email",
                     "type": "string",
-                    "example": "tajo@gmail.com"
+                    "example": "alex@gmail.com"
                   },
                   "contactType": {
                     "description": "Contact's type",
@@ -415,7 +415,7 @@
                   "email": {
                     "description": "Contact's email",
                     "type": "string",
-                    "example": "tajo@gmail.com"
+                    "example": "alex@gmail.com"
                   },
                   "contactType": {
                     "description": "Contact's type",
